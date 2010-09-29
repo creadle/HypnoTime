@@ -9,6 +9,7 @@
 #import "HypnoTimeAppDelegate.h"
 #import "HypnosisViewController.h"
 #import "CurrentTimeViewController.h"
+#import "MapViewController.h"
 
 @implementation HypnoTimeAppDelegate
 
@@ -25,11 +26,13 @@
 	
 	UIViewController *vc1 = [[HypnosisViewController alloc] init];
 	UIViewController *vc2 = [[CurrentTimeViewController alloc] init];
+	UIViewController *vc3 = [[MapViewController alloc] init];
 	
-	NSArray *viewControllers = [NSArray arrayWithObjects:vc1, vc2, nil];
+	NSArray *viewControllers = [NSArray arrayWithObjects:vc1, vc2, vc3, nil];
 	
 	[vc1 release];
 	[vc2 release];
+	[vc3 release];
 	
 	[tabBarController setViewControllers:viewControllers];
 	
@@ -40,6 +43,14 @@
     return YES;
 }
 
+- (void)mapView:(MKMapView *)mv 
+didAddAnnotationViews:(NSArray *)views
+{
+	MKAnnotationView *annotationView = [views objectAtIndex:0];
+	id <MKAnnotation> mp = [annotationView annotation];
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 500, 500);
+	[mv setRegion:region animated:YES];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

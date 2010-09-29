@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface HypnoTimeAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 	UITabBarController *tabBarController;
+	
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
