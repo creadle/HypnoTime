@@ -46,6 +46,28 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
+	NSLog(@"Monitoring accelerometer");
+	UIAccelerometer *a = [UIAccelerometer sharedAccelerometer];
+	[a setUpdateInterval:0.1];
+	[a setDelegate:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	[[UIAccelerometer sharedAccelerometer] setDelegate:nil];
+}
+
+- (void)accelerometer:(UIAccelerometer *)meter
+		didAccelerate:(UIAcceleration *)accel
+{
+	NSLog(@"%f, %f, %f", [accel x], [accel y], [accel z]);
+}
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
