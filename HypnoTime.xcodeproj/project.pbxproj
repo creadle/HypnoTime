@@ -17,6 +17,7 @@
 		176B08D61252994E00DF048E /* CurrentTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B08D41252994E00DF048E /* CurrentTimeViewController.m */; };
 		176B08D71252994E00DF048E /* CurrentTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176B08D51252994E00DF048E /* CurrentTimeViewController.xib */; };
 		176B08DD1252996C00DF048E /* HypnosisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176B08DB1252996C00DF048E /* HypnosisViewController.m */; };
+		17E70C991254EC0D00097706 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E70C981254EC0D00097706 /* ScrollViewController.m */; };
 		1D3623260D0F684500981E51 /* HypnoTimeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* HypnoTimeAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -40,6 +41,8 @@
 		176B08D51252994E00DF048E /* CurrentTimeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentTimeViewController.xib; sourceTree = "<group>"; };
 		176B08DA1252996C00DF048E /* HypnosisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HypnosisViewController.h; path = ../HypnosisViewController.h; sourceTree = "<group>"; };
 		176B08DB1252996C00DF048E /* HypnosisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HypnosisViewController.m; path = ../HypnosisViewController.m; sourceTree = "<group>"; };
+		17E70C971254EC0D00097706 /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
+		17E70C981254EC0D00097706 /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* HypnoTimeAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HypnoTimeAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* HypnoTimeAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HypnoTimeAppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				176B08C91252980100DF048E /* HypnosisView.m */,
 				1D3623240D0F684500981E51 /* HypnoTimeAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HypnoTimeAppDelegate.m */,
+				17E70C971254EC0D00097706 /* ScrollViewController.h */,
+				17E70C981254EC0D00097706 /* ScrollViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				176B08D61252994E00DF048E /* CurrentTimeViewController.m in Sources */,
 				176B08DD1252996C00DF048E /* HypnosisViewController.m in Sources */,
 				1760DCB71253F54900C17D64 /* MapViewController.m in Sources */,
+				17E70C991254EC0D00097706 /* ScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

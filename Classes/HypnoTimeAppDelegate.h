@@ -13,6 +13,7 @@
 @interface HypnoTimeAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 	UITabBarController *tabBarController;
+	UIScrollView *scrollView;
 	
 }
 

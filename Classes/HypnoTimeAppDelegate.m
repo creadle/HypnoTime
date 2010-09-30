@@ -7,6 +7,7 @@
 //
 
 #import "HypnoTimeAppDelegate.h"
+#import "ScrollViewController.h"
 #import "HypnosisViewController.h"
 #import "CurrentTimeViewController.h"
 #import "MapViewController.h"
@@ -22,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
-	tabBarController = [[UITabBarController alloc] init];
+	/*tabBarController = [[UITabBarController alloc] init];
 	
 	UIViewController *vc1 = [[HypnosisViewController alloc] init];
 	UIViewController *vc2 = [[CurrentTimeViewController alloc] init];
@@ -37,19 +38,14 @@
 	[tabBarController setViewControllers:viewControllers];
 	
 	[window addSubview:[tabBarController view]];
+*/
+	scrollView = [[ScrollViewController alloc] init];
+	
+	[window addSubview:[scrollView view]];
     
     [window makeKeyAndVisible];
     
     return YES;
-}
-
-- (void)mapView:(MKMapView *)mv 
-didAddAnnotationViews:(NSArray *)views
-{
-	MKAnnotationView *annotationView = [views objectAtIndex:0];
-	id <MKAnnotation> mp = [annotationView annotation];
-	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 500, 500);
-	[mv setRegion:region animated:YES];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
