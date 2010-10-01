@@ -54,6 +54,8 @@
 	UIAccelerometer *a = [UIAccelerometer sharedAccelerometer];
 	[a setUpdateInterval:0.1];
 	[a setDelegate:self];
+	
+	[[self view] becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -65,7 +67,15 @@
 - (void)accelerometer:(UIAccelerometer *)meter
 		didAccelerate:(UIAcceleration *)accel
 {
-	NSLog(@"%f, %f, %f", [accel x], [accel y], [accel z]);
+	//NSLog(@"%f, %f, %f", [accel x], [accel y], [accel z]);
+	HypnosisView *hv = (HypnosisView *)[self view];
+	float xShift = [hv xShift] * 0.8 + [accel x] * 2.0;
+	float yShift = [hv yShift] * 0.8 - [accel y] * 2.0;
+	
+	[hv setXShift:xShift];
+	[hv setYShift:yShift];
+	
+	[hv setNeedsDisplay];
 }
 
 

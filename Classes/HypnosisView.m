@@ -10,13 +10,15 @@
 
 
 @implementation HypnosisView
+@synthesize xShift, yShift;
 
 
-- (id)initWithFrame:(CGRect)frame {
-    if ((self = [super initWithFrame:frame])) {
-        // Initialization code
-    }
-    return self;
+- (id)initWithFrame:(CGRect)frame 
+{
+	[super initWithFrame:frame];
+	stripeColor = [[UIColor lightGrayColor] retain];
+	
+	return self;
 }
 
 
@@ -36,9 +38,12 @@
 	
 	CGContextSetLineWidth(context, 10);
 	
-	[[UIColor lightGrayColor] setStroke];
+	[stripeColor setStroke];
 	
-	for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) {
+	for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) 
+	{
+		center.x += xShift;
+		center.y += yShift;
 		CGContextAddArc(context, center.x, center.y, currentRadius, 0.0, M_PI * 2.0, YES);
 		CGContextStrokePath(context);
 	}
@@ -62,8 +67,32 @@
 			withFont:font];
 }
 
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+	if (motion == UIEventSubtypeMotionShake) {
+		NSLog(@"Shake started");
+		float r, g, b;
+		r = arc4random() % 256 / 256.0;
+		g = arc4random() % 256 / 256.0;
+		b = arc4random() % 256 / 256.0;
+		[stripeColor release];
+		stripeColor = [UIColor colorWithRed:r
+									  green:g
+									   blue:b
+									  alpha:1];
+		[stripeColor retain];
+		[self setNeedsDisplay];
+	}
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+	return YES;
+}
+
 
 - (void)dealloc {
+	[stripeColor release];
     [super dealloc];
 }
 
