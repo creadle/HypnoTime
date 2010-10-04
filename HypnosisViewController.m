@@ -72,6 +72,39 @@
 	float xShift = [hv xShift] * 0.8 + [accel x] * 2.0;
 	float yShift = [hv yShift] * 0.8 - [accel y] * 2.0;
 	
+	float rShift, gShift, bShift;
+	rShift = gShift = bShift = 0;
+	if ([accel x] >= 0.5) {
+		rShift = [accel x];
+	}
+	else if([accel x] < 0.5){
+		rShift = fabs([accel x]);
+		if (rShift >= 0.5) {
+			rShift -= 0.5;
+		}
+	}
+	if ([accel y] >= 0.5) {
+		gShift = [accel y];
+	}
+	else if([accel y] < 0.5){
+		gShift = fabs([accel y]);
+		if (gShift >= 0.5) {
+			gShift -= 0.5;
+		}
+	}
+	if ([accel z] >= 0.5) {
+		bShift = [accel z];
+	}
+	else if([accel z] < 0.5){
+		bShift = fabs([accel z]);
+		if (bShift >= 0.5) {
+			bShift -= 0.5;
+		}
+	}
+
+	[hv setRShift:rShift];
+	[hv setGShift:gShift];
+	[hv setBShift:bShift];
 	[hv setXShift:xShift];
 	[hv setYShift:yShift];
 	

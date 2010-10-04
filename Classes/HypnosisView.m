@@ -10,7 +10,7 @@
 
 
 @implementation HypnosisView
-@synthesize xShift, yShift;
+@synthesize xShift, yShift, rShift, gShift, bShift;
 
 
 - (id)initWithFrame:(CGRect)frame 
@@ -38,6 +38,11 @@
 	
 	CGContextSetLineWidth(context, 10);
 	
+	stripeColor = [UIColor colorWithRed:rShift
+								  green:gShift 
+								   blue:bShift
+								  alpha:1];
+	[stripeColor retain];
 	[stripeColor setStroke];
 	
 	for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) 
@@ -76,11 +81,11 @@
 		g = arc4random() % 256 / 256.0;
 		b = arc4random() % 256 / 256.0;
 		[stripeColor release];
-		stripeColor = [UIColor colorWithRed:r
-									  green:g
-									   blue:b
-									  alpha:1];
-		[stripeColor retain];
+		//stripeColor = [UIColor colorWithRed:r
+		//							  green:g
+		//							   blue:b
+		//							  alpha:1];
+		//[stripeColor retain];
 		[self setNeedsDisplay];
 	}
 }
